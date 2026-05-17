@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS columns (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    board_id   INTEGER NOT NULL REFERENCES boards(id) ON DELETE CASCADE,
+    name       TEXT NOT NULL,
+    position   INTEGER NOT NULL DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_columns_board_id ON columns(board_id);
