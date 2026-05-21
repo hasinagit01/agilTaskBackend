@@ -35,6 +35,8 @@ class LabelInfo(BaseModel):
 class AssigneeInfo(BaseModel):
     user_id: int
     email: str
+    firstname: Optional[str] = None
+    name: Optional[str] = None
 
 
 class CardResponse(BaseModel):

@@ -20,7 +20,7 @@ class UserRepository(BaseRepository):
         return rows[0] if rows else None
 
     def search_by_email(self, query: str, limit: int = 10) -> List[Dict]:
-        sql = "SELECT id, email FROM users WHERE email LIKE ? ORDER BY email LIMIT ?"
+        sql = "SELECT id, email, firstname, name FROM users WHERE email LIKE ? ORDER BY email LIMIT ?"
         return self.execute_query(sql, (f"%{query}%", limit))
 
     def update_email(self, user_id: int, email: str) -> None:

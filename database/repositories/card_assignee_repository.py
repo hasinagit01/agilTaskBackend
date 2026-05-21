@@ -25,7 +25,7 @@ class CardAssigneeRepository:
 
     def find_by_card(self, card_id: int) -> List[Dict]:
         query = """
-            SELECT u.id AS user_id, u.email
+            SELECT u.id AS user_id, u.email, u.firstname, u.name
             FROM users u
             JOIN card_assignees ca ON u.id = ca.user_id
             WHERE ca.card_id = ?

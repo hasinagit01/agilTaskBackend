@@ -35,7 +35,7 @@ class BoardMemberRepository:
 
     def find_by_board(self, board_id: int) -> List[Dict]:
         query = f"""
-            SELECT bm.board_id, bm.user_id, bm.role, bm.created_at, u.email
+            SELECT bm.board_id, bm.user_id, bm.role, bm.created_at, u.email, u.firstname, u.name
             FROM {self.TABLE} bm
             JOIN users u ON u.id = bm.user_id
             WHERE bm.board_id = ?

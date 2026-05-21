@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Literal
+from typing import List, Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -19,6 +19,8 @@ class MemberResponse(BaseModel):
     board_id: int
     user_id: int
     email: str
+    firstname: Optional[str] = None
+    name: Optional[str] = None
     role: str
     created_at: datetime
 
